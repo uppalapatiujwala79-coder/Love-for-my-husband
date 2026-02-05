@@ -1,25 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For My Husband ❤️</title>
+  <title>For My Love ❤️</title>
+
   <style>
     body {
-      background-color: #ffe6f0;
+      margin: 0;
+      background: #ffe6f0;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 80px;
+      overflow: hidden;
     }
-    h1 { color: #ff3366; }
-    p { font-size: 20px; }
+
+    h1 {
+      color: #ff3366;
+      margin-top: 80px;
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.8;
+      margin: 20px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #counter {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #ff3366;
+    }
+
+    .tap-note {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Falling kiss style */
+    .kiss {
+      position: fixed;
+      top: -50px;
+      font-size: 28px;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
-<body>
+
+<body onclick="addKiss()">
+
   <h1>Hey My Love ❤️</h1>
+
   <p>
-    I didn’t just create a website.<br>
-    I coded my heart for you 🥹💖<br><br>
+    I may not say “I love you” every day,<br>
+    but I always love you from the bottom of my heart 💋💗<br>
+    always and forever 💞
+  </p>
+
+  <div class="signature">
     Forever yours,<br>
     Ujwala
-  </p>
+  </div>
+
+  <div id="counter">💋 Kisses: 0</div>
+  <div class="tap-note">Tap anywhere to send more kisses 💋</div>
+
+  <script>
+    let kissCount = 0;
+
+    function addKiss() {
+      kissCount++;
+      document.getElementById("counter").innerText =
+        "💋 Kisses: " + kissCount;
+
+      createFallingKiss();
+    }
+
+    function createFallingKiss() {
+      const kiss = document.createElement("div");
+      kiss.classList.add("kiss");
+      kiss.innerText = "💋";
+
+      kiss.style.left = Math.random() * 100 + "vw";
+      kiss.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+      document.body.appendChild(kiss);
+
+      setTimeout(() => {
+        kiss.remove();
+      }, 5000);
+    }
+
+    /* Auto falling kisses */
+    setInterval(createFallingKiss, 700);
+  </script>
+
 </body>
 </html>
