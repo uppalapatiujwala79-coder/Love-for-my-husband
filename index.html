@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +14,8 @@
 
     h1 {
       color: #ff3366;
-      margin-top: 70px;
+      margin-top: 40px;
       font-size: 32px;
-    }
-
-    .love-line {
-      font-size: 22px;
-      color: #ff0055;
-      font-weight: bold;
-      margin-top: 10px;
     }
 
     p {
@@ -33,8 +25,15 @@
       margin: 20px;
     }
 
+    .love-line {
+      font-size: 22px;
+      color: #ff3366;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
     .signature {
-      margin-top: 30px;
+      margin-top: 25px;
       font-size: 18px;
       font-weight: bold;
     }
@@ -46,22 +45,22 @@
     }
 
     .tap-note {
-      font-size: 16px;
+      font-size: 14px;
       color: #666;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .timestamp {
-      margin-top: 15px;
+      margin-top: 12px;
       font-size: 14px;
       color: #777;
     }
 
-    /* Falling kiss style */
+    /* Falling kisses */
     .kiss {
       position: fixed;
-      top: -50px;
-      font-size: 28px;
+      top: -40px;
+      font-size: 26px;
       animation: fall linear forwards;
       pointer-events: none;
     }
@@ -79,15 +78,13 @@
 
   <h1>Hey My Love ❤️</h1>
 
-  <div class="love-line">
-    💖 Ujwala loves Sahith 💖
-  </div>
-
   <p>
     I may not say "I love you" every day,<br>
     but I always love you from the bottom of my heart 💋💗<br>
-    always and forever 💕
+    always and forever 💞
   </p>
+
+  <div class="love-line">Ujwala loves Sahith 💖</div>
 
   <div class="signature">
     Forever yours,<br>
@@ -112,7 +109,7 @@
 
     function createFallingKiss() {
       const kiss = document.createElement("div");
-      kiss.classList.add("kiss");
+      kiss.className = "kiss";
       kiss.innerText = "💋";
 
       kiss.style.left = Math.random() * 100 + "vw";
@@ -126,23 +123,20 @@
     }
 
     // Auto falling kisses
-    setInterval(createFallingKiss, 700);
+    setInterval(createFallingKiss, 800);
 
     // Date & Time stamp
     const timeDiv = document.getElementById("timestamp");
     const now = new Date();
-
-    const options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    };
-
     timeDiv.innerText =
       "Made with love on " +
-      now.toLocaleString("en-IN", options) +
+      now.toLocaleString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }) +
       " 💖";
   </script>
 
